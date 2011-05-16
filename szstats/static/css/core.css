@@ -1,0 +1,28 @@
+@import url('/static/css/reset.css');
+
+body {
+    padding: 1.5em;
+}
+
+table {
+    border: 1px solid #CCCCCC;
+}
+
+table tr th {
+    background: #000;
+    color: #FFF;
+    font-weight: bold;
+}
+table {
+    margin-bottom:1.4em;
+}
+tbody tr:nth-child(even) td, tbody tr.even td {background:#e6e6e6;}
+
+nav {
+    margin: 0 0 20px 0;
+}
+
+nav a {
+    padding: 0 10px 0 10px;
+    font-size: 1.2em;
+}
