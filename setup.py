@@ -8,9 +8,9 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 requires = ['pyramid', 'WebError', 'sqlalchemy', 'pytest']
 
-setup(name='CMStats',
+setup(name='SZStats',
       version='0.9',
-      description='CMStats',
+      description='SZStats',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
         "Programming Language :: Python",
@@ -27,10 +27,10 @@ setup(name='CMStats',
       zip_safe=False,
       install_requires=requires,
       tests_require=requires,
-      test_suite="cmstats",
+      test_suite="szstats",
       entry_points="""\
       [paste.app_factory]
-      main = cmstats:main
+      main = szstats:main
       """,
       paster_plugins=['pyramid'],
       )
