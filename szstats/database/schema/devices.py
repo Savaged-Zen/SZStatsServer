@@ -1,5 +1,6 @@
 from szstats.database import Base, DBSession
 from szstats.utils.string import parse_modversion
+from szstats.utils.string import parse_kernelversion
 from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.sql.expression import func
 import datetime
@@ -13,7 +14,7 @@ class Device(Base):
     name = Column('name', String(50), index=True)
     version = Column('version', String(255), index=True)
     version_raw = Column('version_raw', String(255))
-	kernel_version = Column('kernel_version', String(255), index=True)
+    kernel_version = Column('kernel_version', String(255), index=True)
     kernel_version_raw = Column('kernel_version_raw', String(255))
     country = Column('country', String(50), index=True)
     carrier_id = Column('carrier_id', String(50), index=True)
@@ -73,6 +74,7 @@ class Device(Base):
     def add(cls, **kwargs):
         # Clean up the version.
         version = parse_modversion(kwargs['version'])
+        kernel_version = parse_kernelversion(kwargs['version'])
 
         # Grab a session
         session = DBSession()
@@ -91,12 +93,18 @@ class Device(Base):
         else:
             obj.kang = 0
 
+        if kernel_version == None:
+            kernel_version = kwargs['kernel_version']
+            obj.kang = 1
+        else:
+            obj.kang = 0
+
         # Populate the rest of the records.
         obj.hash = kwargs['hash']
         obj.name = kwargs['name']
         obj.version = version
         obj.version_raw = kwargs['version']
-		obj.kernel_version = kernel_version
+        obj.kernel_version = kernel_version
         obj.kernel_version_raw = kwargs['kernel_version']
         obj.country = kwargs['country']
         obj.carrier_id = kwargs['carrier_id']

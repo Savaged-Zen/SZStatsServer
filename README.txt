@@ -1,4 +1,4 @@
-CMStats README
+SZStats README
 
 
 

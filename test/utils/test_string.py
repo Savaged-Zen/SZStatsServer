@@ -1,4 +1,4 @@
-from cmstats.utils.string import parse_modversion
+from szstats.utils.string import parse_modversion
 
 
 def test_parse_modversion():

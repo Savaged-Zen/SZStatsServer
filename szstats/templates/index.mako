@@ -7,11 +7,7 @@
             </tr>
             <tr>
                 <td>Official Installs</td>
-                <td>${total_nonkang|number}</td>
-            </tr>
-            <tr>
-                <td><b>TOTAL</b></td>
-                <td><b>${(total_kang + total_nonkang)|number}</b></td>
+                <td>${total_kang + total_nonkang|number}</td>
             </tr>
             <tr>
                 <td>Last 24 Hours</td>

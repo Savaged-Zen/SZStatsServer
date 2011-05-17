@@ -29,8 +29,8 @@ def main(global_config, **settings):
 
     # App Config
     config = Configurator(root_factory=Root, settings=settings)
-    config.add_static_view('static', 'cmstats:static')
-    config.scan('cmstats.views')
+    config.add_static_view('static', 'szstats:static')
+    config.scan('szstats.views')
 
     # Wrap the app in the SessionMiddleware
     app = SessionMiddleware(config.make_wsgi_app())
